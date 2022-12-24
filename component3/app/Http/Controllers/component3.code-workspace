@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"path": "../../../../../phplayouts"
+		},
+		{
+			"path": "../../../../../Project2"
+		},
+		{
+			"path": "../../../../testproject"
+		},
+		{
+			"path": "../../.."
+		}
+	],
+	"settings": {}
+}

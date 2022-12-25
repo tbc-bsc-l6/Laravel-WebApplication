@@ -1,0 +1,38 @@
+.body{
+    background-color: whitesmoke;
+}
+.row{
+    margin: auto;
+    background-color: lightblue;
+    width:50%;
+}
+
+.container{
+    margin-top:50px;
+    margin-bottom:50px;
+  
+}
+.btn{
+    position:static;
+}
+.btn-danger{
+    margin-left:130px;
+    position:absolute;
+}
+.btn-success{
+    background-color:#C6F8E5;
+    color:black;
+}
+
+.btn-success:hover{
+    background-color: #CCE1F2;
+    color:black;
+}
+
+.navbar .navbar-brand{
+    color: white;
+}
+
+.collapse .navbar-nav .nav-item .nav-link{
+    color: white;
+}

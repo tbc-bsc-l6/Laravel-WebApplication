@@ -1,12 +1,13 @@
 @extends('product.layout')
 @section('content')
+<div class="container">
 <div class="row">
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
             <h2>Add new Product</h2>
         </div>
         <div class="pull-right">
-            <a class="btn btn-primary"href="{{'product'}}">Back</a>
+            <a class="btn btn-primary"href="{{'/product'}}">Back</a>
           
 
         </div>
@@ -88,4 +89,5 @@
     </div>
 </div>
 </form>
+</div>
 @endsection

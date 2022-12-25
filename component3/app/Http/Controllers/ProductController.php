@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-
+use Illuminate\Pagination\Paginator;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class ProductController extends Controller
 {
@@ -18,7 +19,7 @@ class ProductController extends Controller
     {
        
         $product = DB::table('product')->get();
-
+        
         $movie = [];
         $book = [];
 
@@ -26,11 +27,17 @@ class ProductController extends Controller
             if ($pro->Category == 'Movie') {
                 $movie[] = $pro;
             }
-            else {
+            else if($pro->Category == 'Book') {
                 $book[] = $pro;
             }
         }
+        $book = $this->paginate($book, 4);
+        $book->withPath("");
 
+        $movie = $this->paginate($movie, 4);
+        $movie->withPath("");
+
+        
         return view('product.index',['movie' => $movie, 'book' => $book])
         ->with('i',(request()->input('page',1) - 1) * 5)
         ->with('a',(request()->input('page',1) - 1) * 5);
@@ -41,6 +48,17 @@ class ProductController extends Controller
         //  return view('product.index',compact('product'))
         //      ->with('i',(request()->input('page',1) - 1) * 5);
     }
+    public function paginate($items, $perPage = 4, $page = null)
+    {
+        $page = $page ?: (Paginator::resolveCurrentPage() ?: 1);
+        $total = count($items);
+        $currentpage = $page;
+        $offset = ($currentpage * $perPage) - $perPage ;
+        $itemstoshow = array_slice($items , $offset , $perPage);
+        return new LengthAwarePaginator($itemstoshow ,$total ,$perPage);
+    }
+
+   
 
     /**
      * Show the form for creating a new resource.
@@ -86,9 +104,11 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function show(Product $product)
+    public function show(int $id)
     {
-        //
+        $product = DB::table('product')->get()->where('id', $id)->first();
+
+        return view('product.show',compact('product'));
     }
 
     /**
@@ -102,7 +122,7 @@ class ProductController extends Controller
      
         $product = DB::table('product')->get()->where('id', $id)->first();
 
-        return view('product.edit',['product' => $product]);
+        return view('product.edit',compact('product'));
     }
 
     /**
@@ -112,9 +132,26 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $product)
+    public function update(Request $request, int $id, Product $product)
     {
-        //
+        $request->validate([
+            'Title' => 'required',
+            'Creator' => 'required',
+            'PagesorLength' => 'required',
+            'Category' => 'required',
+            'Price' => 'required',
+        ]);
+        DB::table('product')->where('id', $id)
+        ->update([
+        'Title' => $request->input('Title'),
+        'Creator' => $request->input('Creator'),
+        'PagesorLength' => $request->input('PagesorLength'),
+        'Category' => $request->get('Category'),
+        'Price' => $request->input('Price')
+        ]);
+        return redirect('/product')
+        //->route('/lipstick/index')
+            ->with('success', 'Product Updated successfully!');
     }
 
     /**
@@ -123,8 +160,11 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Product $product)
+    public function destroy(int $id)
     {
-        //
+        DB::table('product')->where('id', $id)->delete();
+        return redirect('/product')
+        //->route('/lipstick/index')
+            ->with('success', 'Product Deleted successfully!');
     }
 }

@@ -2,6 +2,7 @@
 @extends('product.layout')
 
 @section('content')
+<div class="container">
 <div class="row">
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
@@ -26,10 +27,29 @@
 
 
 
-<form action="#" method="POST">
+<form action="/product/update{{$product->id}}" method="POST">
     @csrf
     @method('PUT')
-   
+    <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Caterogy:</strong>
+                <select name="Category">
+                <option  disabled selected>----Choose---</option>
+                <option value="Movie">Movie</option>
+                <option value="Book">Book</option>
+                </select>
+            </div>
+    </div>
+</div>
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                
+                <input type="hidden" name="id" value="{{$product->id}}" class="form-control" placeholder="">
+            </div>
+        </div>
+</div>
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
@@ -37,13 +57,16 @@
                 <input type="text" name="Title" value="{{$product->Title}}" class="form-control" placeholder="Title">
             </div>
         </div>
-
+</div>
+<div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Creator:</strong>
                 <input type="text" name="Creator" value="{{$product->Creator}}" class="form-control" placeholder="Creator">
             </div>
         </div>
+</div>
+<div class="row">
 
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
@@ -51,6 +74,8 @@
                 <input type="text" name="PagesorLength" value="{{$product->PagesorLength}}" class="form-control" placeholder="Pages/Length">
             </div>
         </div>
+</div>
+<div class="row">
 
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
@@ -58,6 +83,7 @@
                 <input type="text" name="Price" value="{{$product->Price}}" class="form-control" placeholder="Price">
             </div>
         </div>
+</div>
 
        
 
@@ -66,5 +92,5 @@
         </div>
     </div>
 </form>
-
+</div>
 @endsection

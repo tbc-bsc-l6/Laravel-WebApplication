@@ -3,13 +3,13 @@
 <div class="pull-left">
     <h2>Products</h2>
 </div>
-<div class="row">
+
     <div class="col-lg-12 margin-tb">
         <div class="pull-right">
             <a class="btn btn-success" href="/product/create">Add new product!</a>
         </div>
     </div>
-</div>
+
 
 @if($message = Session::get('success'))
 <div class="alert alert-success">
@@ -30,31 +30,31 @@
         <th width="280px">Action</th>
     </tr>
 
-    @foreach($book as $book)
+    @foreach($book as $booc)
     <tr>
          <td>{{ ++$i }}</td>
-        <td>{{ $book->Title }}</td>
-        <td>{{ $book->Creator }}</td>
-        <td>{{ $book->Category }}</td>
-        <td>{{ $book->PagesorLength }}</td>
-        <td>{{ $book->Price }}</td>
+        <td>{{ $booc->Title }}</td>
+        <td>{{ $booc->Creator }}</td>
+        <td>{{ $booc->Category }}</td>
+        <td>{{ $booc->PagesorLength }}</td>
+        <td>{{ $booc->Price }}</td>
         <td>
-            <!-- <form action="#" method="POST"> -->
-                <a class="btn btn-info" href="#">Show</a>
-                <a class="btn btn-info" href="/product/edit{{$book->id}}">Edit</a>
-                <a class="btn btn-danger" href="#">Delete</a>
-
-                <!-- @csrf -->
-                <!-- @method('DELETE')
-
-                <button type="submit" class="btn btn-danger">Delete</button> -->
-   
-            </form>
+            <a class="btn btn-info" href="/product/show{{$booc->id}}">Show</a>
+            <a class="btn btn-info" href="/product/edit{{$booc->id}}">Edit</a>
+            <form action="product/delete{{$booc->id}}" method="POST">
+            <button type="submit" class="btn btn-danger">Delete</button>
+            @csrf
+            @method('DELETE')
+            </form> 
         </td>
     </tr>
     @endforeach
     </table>
-
+    @if(count($book))
+     {!! $book->links('pagination::bootstrap-4') !!}
+    @else
+    <p class="text-center">No more products to show!</p>
+    @endif
 
     <h4>MOVIE</h4>
     <table class="table table-bordered">
@@ -77,29 +77,22 @@
         <td>{{ $mov->PagesorLength }}</td>
         <td>{{ $mov->Price }}</td>
         <td>
-            <form action="#" method="POST"> 
-                <a class="btn btn-info" href="#">Show</a>
-                <a class="btn btn-info" href="/product/edit{{$mov->id}}">Edit</a>
-                <a class="btn btn-danger" href="#">Delete</a>
-
-                @csrf
-                @method('DELETE')
-
-                
-            </form>
+            <a class="btn btn-info" href="#">Show</a>
+            <a class="btn btn-info" href="/product/edit{{$mov->id}}">Edit</a>
+            <form action="product/delete{{$mov->id}}" method="POST">
+            <button type="submit" class="btn btn-danger">Delete</button>
+            @csrf
+            @method('DELETE')
+            </form>   
         </td>
     </tr>
     @endforeach
     </table> 
-
- 
     
-
-
-
-
-
-    <!-- ************************************************ -->
-
-    <!-- *********************************************************** -->
+     @if(count($movie))
+     {!! $movie->links('pagination::bootstrap-4') !!}
+    @else
+    <p class="text-center">No more products to show!</p>
+    @endif
+   
 @endsection

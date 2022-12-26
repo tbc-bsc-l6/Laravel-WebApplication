@@ -39,9 +39,10 @@
         <td>{{ $booc->PagesorLength }}</td>
         <td>{{ $booc->Price }}</td>
         <td>
+        <form action="product/delete{{$booc->id}}" method="POST">
             <a class="btn btn-info" href="/product/show{{$booc->id}}">Show</a>
             <a class="btn btn-info" href="/product/edit{{$booc->id}}">Edit</a>
-            <form action="product/delete{{$booc->id}}" method="POST">
+            
             <button type="submit" class="btn btn-danger">Delete</button>
             @csrf
             @method('DELETE')
@@ -77,9 +78,10 @@
         <td>{{ $mov->PagesorLength }}</td>
         <td>{{ $mov->Price }}</td>
         <td>
-            <a class="btn btn-info" href="#">Show</a>
+        <form action="product/delete{{$mov->id}}" method="POST">
+            <a class="btn btn-info" href="/product/show{{$mov->id}}">Show</a>
             <a class="btn btn-info" href="/product/edit{{$mov->id}}">Edit</a>
-            <form action="product/delete{{$mov->id}}" method="POST">
+           
             <button type="submit" class="btn btn-danger">Delete</button>
             @csrf
             @method('DELETE')

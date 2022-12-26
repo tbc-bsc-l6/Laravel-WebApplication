@@ -167,4 +167,14 @@ class ProductController extends Controller
         //->route('/lipstick/index')
             ->with('success', 'Product Deleted successfully!');
     }
+
+    public function search()
+    {
+        $search_text = $_GET['query'];
+        $product = Product::where('Title','LIKE', '%'.$search_text.'%')->get();
+        
+
+        return view('product.search', compact('product'));
+
+    }
 }

@@ -1,5 +1,5 @@
 .body{
-    background-color: whitesmoke;
+    background-color: black;
 }
 .row{
     margin: auto;
@@ -12,13 +12,19 @@
     margin-bottom:50px;
   
 }
-.btn{
+/* .btn{
     position:static;
-}
-.btn-danger{
+} */
+/* .btn-danger{
     margin-left:130px;
     position:absolute;
+
 }
+button.btn.btn-danger{
+    position:absolute;
+    z-index: 1001;
+} */
+
 .btn-success{
     background-color:#C6F8E5;
     color:black;

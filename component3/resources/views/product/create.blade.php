@@ -26,7 +26,7 @@
 </div>
 @endif
 
-<form action="{{'/product/store'}}" method="POST">
+<form action="{{'/product/store'}}" method="POST" enctype="multipart/form-data">
 
 @csrf
 
@@ -76,6 +76,14 @@
         <div class="form-group">
             <strong>Price:</strong>
             <input type="text" name="Price" class="form-control" placeholder="Price">
+        </div>
+    </div>
+
+
+    <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="form-group">
+            <strong>Image:</strong>
+            <input type="file" name="Image" class="form-control">
         </div>
     </div>
 

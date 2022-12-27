@@ -1,6 +1,5 @@
 @extends('product.layout')
 @section('content')
-<div class="contianer">
 <form>
     @csrf
     <div class="row">
@@ -55,8 +54,9 @@
         </div>
     </div>
     <div class="row">
-        <a href="{{'/product'}}" class="btn btn-primary">GO BACK</button>
-    </div>
+    <a href="{{'/product'}}" class="btn btn-primary">GO BACK</button> 
+    </div>   
 </form>
-</div>
+
+
 @endsection

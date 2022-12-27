@@ -8,6 +8,7 @@
         <th>Category</th>
         <th>Pages</th>
         <th>Price</th>
+        <th>Image</th>
         <th width="280px">Action</th>
     </tr>
 
@@ -18,6 +19,9 @@
         <td>{{ $booc->Category }}</td>
         <td>{{ $booc->PagesorLength }}</td>
         <td>{{ $booc->Price }}</td>
+        <td>
+        <img src="{{ asset('/images/uploads/'.$booc->Image)}}" width="100px" height="100px" alt="Image">
+        </td>
         <td>
         <form action="product/delete{{$booc->id}}" method="POST">
             <a class="btn btn-info" href="/product/show{{$booc->id}}">Show</a>

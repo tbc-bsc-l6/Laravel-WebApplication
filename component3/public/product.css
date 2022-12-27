@@ -12,27 +12,26 @@
     margin-bottom:50px;
   
 }
-/* .btn{
-    position:static;
-} */
-/* .btn-danger{
-    margin-left:130px;
-    position:absolute;
-
-}
-button.btn.btn-danger{
-    position:absolute;
-    z-index: 1001;
-} */
 
 .btn-success{
+    background-color:#C6F8E5;
+    color:black;
+    
+}
+
+.btn-info{
     background-color:#C6F8E5;
     color:black;
 }
 
 .btn-success:hover{
-    background-color: #CCE1F2;
-    color:black;
+    background-color: green;
+    color:white;
+}
+
+.btn-info:hover{
+    background-color: green;
+    color:white;
 }
 
 .navbar .navbar-brand{
@@ -41,4 +40,32 @@ button.btn.btn-danger{
 
 .collapse .navbar-nav .nav-item .nav-link{
     color: white;
+}
+.btn-danger{
+    background-color:#FF7F7F;
+    color:black;
+}
+
+.btn-danger:hover{
+    background-color: red;
+    color:white;
+}
+
+
+
+table.table-bordered{
+    border:3px solid black;
+    margin-top:20px;
+  }
+table.table-bordered > tbody > tr > th{
+    border:2px solid blue;
+}
+table.table-bordered > tbody > tr > td{
+    border:2px solid blue;
+}
+
+.page-footer{
+    background-color: black;
+    color:white;
+    min-height: 10px;
 }

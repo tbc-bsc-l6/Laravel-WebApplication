@@ -20,6 +20,7 @@ return new class extends Migration
             $table->integer('PagesorLength');
             $table->string('Category');
             $table->integer('Price');
+            $table->string('Image')->nullable();
             $table->timestamps();
         });
     }

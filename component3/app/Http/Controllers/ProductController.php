@@ -31,10 +31,10 @@ class ProductController extends Controller
                 $book[] = $pro;
             }
         }
-        $book = $this->paginate($book, 4);
+        $book = $this->paginate($book, 2);
         $book->withPath("");
 
-        $movie = $this->paginate($movie, 4);
+        $movie = $this->paginate($movie, 2);
         $movie->withPath("");
 
         
@@ -84,6 +84,7 @@ class ProductController extends Controller
             'PagesorLength' => 'required',
             'Category' => 'required',
             'Price' => 'required',
+            'Image' => 'nullable|image|mimes:jpg,png',
         ]);
         $product = new Product;
         $product->Title = $request->input('Title');
@@ -91,7 +92,14 @@ class ProductController extends Controller
         $product->PagesorLength = $request->input('PagesorLength');
         $product->Category = $request->get('Category');
         $product->Price = $request->input('Price');
-        
+        if($request->hasfile('Image'))
+        {
+            $file = $request->file('Image');
+            $extention = $file->getClientOriginalExtension();
+           $filename = time().'.'.$extention;
+           $file-> move('images/uploads/', $filename);
+           $product->Image=$filename;
+        }
         $product->save();
         return redirect('/product')
         //->route('/lipstick/index')
@@ -124,6 +132,7 @@ class ProductController extends Controller
 
         return view('product.edit',compact('product'));
     }
+    
 
     /**
      * Update the specified resource in storage.

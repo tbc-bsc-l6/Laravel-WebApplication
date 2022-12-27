@@ -26,7 +26,8 @@
         <th>Creator</th>
         <th>Category</th>
         <th>Pages</th>
-        <th>Price</th>
+        <th>£ Price</th>
+        <th>Image</th>
         <th width="280px">Action</th>
     </tr>
 
@@ -38,6 +39,9 @@
         <td>{{ $booc->Category }}</td>
         <td>{{ $booc->PagesorLength }}</td>
         <td>{{ $booc->Price }}</td>
+        <td>
+        <img src="{{ asset('/images/uploads/'.$booc->Image)}}" width="100px" height="100px" alt="Image">
+        </td>
         <td>
         <form action="product/delete{{$booc->id}}" method="POST">
             <a class="btn btn-info" href="/product/show{{$booc->id}}">Show</a>
@@ -65,7 +69,8 @@
         <th>Creator</th>
         <th>Category</th>
         <th>Length(min)</th>
-        <th>Price</th>
+        <th>£ Price</th>
+        <th>Image</th>
         <th width="280px">Action</th>
     </tr>
 
@@ -77,6 +82,9 @@
         <td>{{ $mov->Category }}</td>
         <td>{{ $mov->PagesorLength }}</td>
         <td>{{ $mov->Price }}</td>
+        <td>
+        <img src="{{ asset('/images/uploads/'.$mov->Image)}}" width="100px" height="100px" alt="Image">
+        </td>
         <td>
         <form action="product/delete{{$mov->id}}" method="POST">
             <a class="btn btn-info" href="/product/show{{$mov->id}}">Show</a>

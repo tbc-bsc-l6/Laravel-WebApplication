@@ -54,6 +54,14 @@
         </div>
     </div>
     <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Image:</strong>
+                <img src="{{ asset('/images/uploads/'.$product->Image)}}" width="200px" height="200px" alt="Image">
+            </div>
+        </div>
+    </div>
+    <div class="row">
     <a href="{{'/product'}}" class="btn btn-primary">GO BACK</button> 
     </div>   
 </form>

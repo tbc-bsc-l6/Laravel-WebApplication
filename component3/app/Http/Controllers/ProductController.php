@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Pagination\LengthAwarePaginator;
 
@@ -84,7 +85,7 @@ class ProductController extends Controller
             'PagesorLength' => 'required',
             'Category' => 'required',
             'Price' => 'required',
-            'Image' => 'nullable|image|mimes:jpg,png',
+            'Image' => 'nullable',
         ]);
         $product = new Product;
         $product->Title = $request->input('Title');
@@ -149,6 +150,7 @@ class ProductController extends Controller
             'PagesorLength' => 'required',
             'Category' => 'required',
             'Price' => 'required',
+            'Image' => 'nullable',
         ]);
         DB::table('product')->where('id', $id)
         ->update([
@@ -156,12 +158,29 @@ class ProductController extends Controller
         'Creator' => $request->input('Creator'),
         'PagesorLength' => $request->input('PagesorLength'),
         'Category' => $request->get('Category'),
-        'Price' => $request->input('Price')
-        ]);
+        'Price' => $request->input('Price'),
+    ]);
+    if($request->hasfile('Image'))
+    {
+        $destination = 'images/uploads/'.$product->Image;
+        if(File::exists($destination))
+        {
+              File::delete($destination);  
+        }
+        $file = $request->file('Image');
+        $extention = $file->getClientOriginalExtension();
+       $filename = time().'.'.$extention;
+       $file-> move('images/uploads/', $filename);
+       $product->Image=$filename;
+    //    $product->update();
+       DB::table('product')->where('id', $id)
+       ->update(['Image'=>$filename]);
+    }
         return redirect('/product')
         //->route('/lipstick/index')
             ->with('success', 'Product Updated successfully!');
     }
+    
 
     /**
      * Remove the specified resource from storage.

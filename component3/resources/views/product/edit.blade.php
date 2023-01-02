@@ -27,7 +27,7 @@
 
 
 
-<form action="/product/update{{$product->id}}" method="POST">
+<form action="/product/update{{$product->id}}" method="POST" enctype="multipart/form-data">
     @csrf
     @method('PUT')
     <div class="row">
@@ -84,8 +84,24 @@
             </div>
         </div>
 </div>
+<div class="row">
 
-       
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Image:</strong>
+                <img src="{{ asset('/images/uploads/'.$product->Image)}}" width="100px" height="100px" alt="Image">
+                </div>
+        </div>
+</div>
+<div class="row">
+
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>New Image:</strong>
+                <input type="file" name="Image" class="form-control">
+            </div>
+        </div>
+</div>
 
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
             <button type="submit" class="btn btn-primary">SUBMIT</button>

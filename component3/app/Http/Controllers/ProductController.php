@@ -25,17 +25,17 @@ class ProductController extends Controller
         $book = [];
 
         foreach ($product as $pro) {
-            if ($pro->Category == 'Movie') {
+            if ($pro->category_id == 1) {
                 $movie[] = $pro;
             }
-            else if($pro->Category == 'Book') {
+            else if($pro->category_id == 2) {
                 $book[] = $pro;
             }
         }
-        $book = $this->paginate($book, 2);
+        $book = $this->paginate($book, 5);
         $book->withPath("");
 
-        $movie = $this->paginate($movie, 2);
+        $movie = $this->paginate($movie, 5);
         $movie->withPath("");
 
         
@@ -83,7 +83,7 @@ class ProductController extends Controller
             'Title' => 'required',
             'Creator' => 'required',
             'PagesorLength' => 'required',
-            'Category' => 'required',
+            'category_id' => 'required',
             'Price' => 'required',
             'Image' => 'nullable',
         ]);
@@ -91,7 +91,7 @@ class ProductController extends Controller
         $product->Title = $request->input('Title');
         $product->Creator = $request->input('Creator');
         $product->PagesorLength = $request->input('PagesorLength');
-        $product->Category = $request->get('Category');
+        $product->category_id = $request->get('category_id');
         $product->Price = $request->input('Price');
         if($request->hasfile('Image'))
         {
@@ -148,7 +148,7 @@ class ProductController extends Controller
             'Title' => 'required',
             'Creator' => 'required',
             'PagesorLength' => 'required',
-            'Category' => 'required',
+            'category_id' => 'required',
             'Price' => 'required',
             'Image' => 'nullable',
         ]);
@@ -157,7 +157,7 @@ class ProductController extends Controller
         'Title' => $request->input('Title'),
         'Creator' => $request->input('Creator'),
         'PagesorLength' => $request->input('PagesorLength'),
-        'Category' => $request->get('Category'),
+        'category_id' => $request->get('category_id'),
         'Price' => $request->input('Price'),
     ]);
     if($request->hasfile('Image'))

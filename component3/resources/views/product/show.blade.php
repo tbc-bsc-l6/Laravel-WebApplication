@@ -5,8 +5,8 @@
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Caterogy:</strong>
-                <input type="text" name="Category" value="{{$product->Category}}" class="form-control"  readonly="readonly">
+                <strong>Caterogy_ID:</strong>
+                <input type="text" name="Category" value="{{$product->category_id}}" class="form-control"  readonly="readonly">
             </div>
         </div>
     </div>
@@ -57,7 +57,7 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Image:</strong>
-                <img src="{{ asset('/images/uploads/'.$product->Image)}}" width="200px" height="200px" alt="Image">
+                <img src="{{ asset('/images/uploads/'.$product->Image)}}" width="200px" height="200px" alt="NO IMAGE FOR THIS PRODUCT">
             </div>
         </div>
     </div>

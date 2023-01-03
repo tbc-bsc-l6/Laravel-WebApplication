@@ -14,11 +14,23 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        // Product::truncate();
+        // Category::truncate();
+        \App\Models\Product::factory(10)->create();
 
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
+        // ]);
+
+        // Category::Create([
+        //     'name'=>'Book',
+        //     'slug'=>'book'
+        // ]);
+
+        // Category::Create([
+        //     'name'=>'Movie',
+        //     'slug'=>'movie'
         // ]);
     }
 }

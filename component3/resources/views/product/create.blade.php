@@ -35,10 +35,10 @@
     <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Caterogy:</strong>
-                <select name="Category">
+                <select name="category_id">
                 <option  disabled selected>----Choose---</option>
-                <option value="Movie">Movie</option>
-                <option value="Book">Book</option>
+                <option value=1>Movie</option>
+                <option value=2>Book</option>
                 </select>
             </div>
     </div>

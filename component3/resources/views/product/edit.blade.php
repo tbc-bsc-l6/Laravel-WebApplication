@@ -34,10 +34,10 @@
     <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Caterogy:</strong>
-                <select name="Category">
+                <select name="category_id">
                 <option  disabled selected>----Choose---</option>
-                <option value="Movie">Movie</option>
-                <option value="Book">Book</option>
+                <option value=1>1.Movie</option>
+                <option value=2>2.Book</option>
                 </select>
             </div>
     </div>
@@ -63,6 +63,14 @@
             <div class="form-group">
                 <strong>Creator:</strong>
                 <input type="text" name="Creator" value="{{$product->Creator}}" class="form-control" placeholder="Creator">
+            </div>
+        </div>
+</div>
+<div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Category_id:</strong>
+                <input type="text" value="{{$product->category_id}}" class="form-control" placeholder="Creator" readonly="readonly">
             </div>
         </div>
 </div>

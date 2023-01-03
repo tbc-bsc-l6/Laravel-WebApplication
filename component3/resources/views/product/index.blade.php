@@ -24,7 +24,7 @@
         <th>S.No.</th>
         <th>Title</th>
         <th>Creator</th>
-        <th>Category</th>
+        <th>Category_id</th>
         <th>Pages</th>
         <th>£ Price</th>
         <th>Image</th>
@@ -36,11 +36,15 @@
          <td>{{ ++$i }}</td>
         <td>{{ $booc->Title }}</td>
         <td>{{ $booc->Creator }}</td>
-        <td>{{ $booc->Category }}</td>
+        <td>{{ $booc->category_id }}</td>
         <td>{{ $booc->PagesorLength }}</td>
         <td>{{ $booc->Price }}</td>
         <td>
-        <img src="{{ asset('/images/uploads/'.$booc->Image)}}" width="100px" height="100px" alt="Image">
+        @if($booc->Image == null)
+        <img src="../images/uploads/empty.jpg"  width="100px" height="100px">
+        @else
+        <img src="{{ asset('/images/uploads/'.$booc->Image)}}" width="100px" height="100px" alt="">
+        @endif
         </td>
         <td>
         <form action="product/delete{{$booc->id}}" method="POST">
@@ -67,7 +71,7 @@
         <th>S.No.</th>
         <th>Title</th>
         <th>Creator</th>
-        <th>Category</th>
+        <th>Category_id</th>
         <th>Length(min)</th>
         <th>£ Price</th>
         <th>Image</th>
@@ -79,11 +83,15 @@
         <td>{{ ++$a }}</td>
         <td>{{ $mov->Title }}</td>
         <td>{{ $mov->Creator }}</td>
-        <td>{{ $mov->Category }}</td>
+        <td>{{ $mov->category_id }}</td>
         <td>{{ $mov->PagesorLength }}</td>
         <td>{{ $mov->Price }}</td>
         <td>
-        <img src="{{ asset('/images/uploads/'.$mov->Image)}}" width="100px" height="100px" alt="Image">
+        @if($mov->Image == null)
+        <img src="../images/uploads/empty.jpg"  width="100px" height="100px">
+        @else
+        <img src="{{ asset('/images/uploads/'.$mov->Image)}}" width="100px" height="100px" alt="">
+        @endif
         </td>
         <td>
         <form action="product/delete{{$mov->id}}" method="POST">

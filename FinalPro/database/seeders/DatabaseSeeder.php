@@ -23,14 +23,5 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
-        // Category::Create([
-        //     'name'=>'Book',
-        //     'slug'=>'book'
-        // ]);
-
-        // Category::Create([
-        //     'name'=>'Movie',
-        //     'slug'=>'movie'
-        // ]);
     }
 }

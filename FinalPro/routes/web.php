@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Middleware\Authenticate;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,7 +19,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/product', [App\Http\Controllers\ProductController::class, 'index']);
+Route::get('/product', [App\Http\Controllers\ProductController::class, 'index'])->middleware('auth');
+
+Route::get('/productguest', [App\Http\Controllers\ProductController::class, 'index2']);
+
 
 
 Route::get('/product/create', [App\Http\Controllers\ProductController::class, 'create']);

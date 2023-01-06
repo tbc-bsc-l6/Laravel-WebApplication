@@ -49,6 +49,39 @@ class ProductController extends Controller
         //  return view('product.index',compact('product'))
         //      ->with('i',(request()->input('page',1) - 1) * 5);
     }
+    public function index2()
+    {
+       
+        $product = DB::table('product')->get();
+        
+        $movie = [];
+        $book = [];
+
+        foreach ($product as $pro) {
+            if ($pro->category_id == 1) {
+                $movie[] = $pro;
+            }
+            else if($pro->category_id == 2) {
+                $book[] = $pro;
+            }
+        }
+        $book = $this->paginate($book, 5);
+        $book->withPath("");
+
+        $movie = $this->paginate($movie, 5);
+        $movie->withPath("");
+
+        
+        return view('product.index2',['movie' => $movie, 'book' => $book])
+        ->with('i',(request()->input('page',1) - 1) * 5)
+        ->with('a',(request()->input('page',1) - 1) * 5);
+        
+         // this 'product is calling hte model'
+        //  $product = Product::latest()->paginate(5);
+        //  // when the page is loded it shoes the page produ.index
+        //  return view('product.index',compact('product'))
+        //      ->with('i',(request()->input('page',1) - 1) * 5);
+    }
     public function paginate($items, $perPage = 4, $page = null)
     {
         $page = $page ?: (Paginator::resolveCurrentPage() ?: 1);

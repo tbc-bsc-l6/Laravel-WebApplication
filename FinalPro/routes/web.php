@@ -25,23 +25,26 @@ Route::get('/productguest', [App\Http\Controllers\ProductController::class, 'ind
 
 
 
-Route::get('/product/create', [App\Http\Controllers\ProductController::class, 'create']);
+Route::get('/product/create', [App\Http\Controllers\ProductController::class, 'create'])->middleware('auth');
 Route::post('/product/store', [App\Http\Controllers\ProductController::class, 'store']);
 
 
-Route::get('/product/edit{id}', [App\Http\Controllers\ProductController::class, 'edit']);
+Route::get('/product/edit{id}', [App\Http\Controllers\ProductController::class, 'edit'])->middleware('auth');
 Route::put('/product/update{id}', [App\Http\Controllers\ProductController::class, 'update']);
 
 Route::delete('/product/delete{id}', [App\Http\Controllers\ProductController::class, 'destroy']);
 
-Route::get('/product/show{id}', [App\Http\Controllers\ProductController::class, 'show']);
+Route::get('/product/show{id}', [App\Http\Controllers\ProductController::class, 'show'])->middleware('auth');
 
 Route::get('/product/search{query}', [App\Http\Controllers\ProductController::class, 'search']);
 
 
-
-
-
+Route::get('/users', [App\Http\Controllers\UserController::class, 'index'])->middleware('auth');
+Route::get('/users/editusers{id}', [App\Http\Controllers\UserController::class, 'edit'])->middleware('auth');
+Route::put('/users/update{id}', [App\Http\Controllers\UserController::class, 'update']);
+Route::get('/users/create', [App\Http\Controllers\UserController::class, 'create'])->middleware('auth');
+Route::post('/users/store', [App\Http\Controllers\UserController::class, 'store']);
+Route::delete('/users/delete{id}', [App\Http\Controllers\UserController::class, 'destroy']);
 
 
 

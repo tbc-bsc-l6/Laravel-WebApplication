@@ -4,11 +4,7 @@
     <h2>Products</h2>
 </div>
 
-    <div class="col-lg-12 margin-tb">
-        <div class="pull-right">
-            <a class="btn btn-success" href="/product/create">Add new product!</a>
-        </div>
-    </div>
+ 
 
 
 @if($message = Session::get('success'))

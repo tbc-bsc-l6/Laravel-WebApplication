@@ -29,7 +29,7 @@ class ProductFactory extends Factory
             'Title' => fake()->words(3, true),
             'Creator' => fake()->Name(),
             'PagesorLength' => fake()->randomNumber(3, true),
-            'category_id' => 2,
+            'category_id' => 1,
             'Price' => fake()->randomNumber(3, true),
         ];
     }

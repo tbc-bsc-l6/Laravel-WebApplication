@@ -18,14 +18,14 @@
         </div>
       
         <!-- role -->
-        <div>
+        <!-- <div>
             <x-input-label for="role" :value="__('Role')" />
             <select name="role" id="role">
                 <option  disabled selected>--Choose--</option>
                 <option value="Admin">Admin</option>
                 <option value="User">User</option>
                 </select>  
-        </div>
+        </div> -->
 
 
         <!-- Password -->

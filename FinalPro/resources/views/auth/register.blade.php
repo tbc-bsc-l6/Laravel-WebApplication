@@ -67,4 +67,5 @@
 
         </div>
     </form>
+    <a class="btn btn-info" href="/">HOME</a>
 </x-guest-layout>

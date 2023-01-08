@@ -41,9 +41,11 @@
     </tr>
     @endforeach
     </table>
+    @if(auth()->user())
     <a class="btn btn-info" href="/product">GO BACK</a>
- 
-    
+    @else
+    <a class="btn btn-info" href="/productguest">GO BACK</a>
+    @endif
 
 
 

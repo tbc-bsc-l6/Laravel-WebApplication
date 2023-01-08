@@ -14,6 +14,32 @@ use App\Http\Middleware\Authenticate;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::post('/newsletter', function(){
+    request()->validate(['email'=> 'required|email']);
+    
+$mailchimp = new \MailchimpMarketing\ApiClient();
+
+$mailchimp->setConfig([
+	'apiKey' => config('services.mailchimp.key'),
+	'server' => 'us11'
+]);
+
+try{
+    $response = $mailchimp->lists->addListMember('8128d2b0c8',[
+        'email_address' => request('email'),
+        'status' => 'subscribed'
+    ]);
+}catch(\Exception $e){
+    return redirect('/')
+    ->with('error', 'Your email address is not valid!.');
+}
+
+return redirect('/')
+    ->with('success', 'You are now susbscrbed to our sales daily.');
+});
+
+
+
 
 Route::get('/', function () {
     return view('welcome');

@@ -26,7 +26,7 @@
     <a id="next" href="#">&#8811;</a>
 </div>
 <h1>About Us</h1>
-<div class="flex-container">
+<div class="flex-container1">
     <div class="container1">
         <h3>What do we do?</h3>
         <p>We are a website that helps the sellers to perform crud functionalities on the products, The signed in users can perform crud on the products who are known as the admins, There are other users who are non signed in users who can only view the products but

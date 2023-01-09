@@ -14,7 +14,7 @@ class UserController extends Controller
 {
     public function index()
     {
-        if(auth()->user()->name!='Avantika Nepal'){
+        if(auth()->user()->email!='nisuka84@gmail.com'){
             return redirect('/');
         }
         $users = User::latest()->paginate(20);
@@ -25,6 +25,9 @@ class UserController extends Controller
 
     public function create()
     {
+        if(auth()->user()->email!='nisuka84@gmail.com'){
+            return redirect('/');
+        }
         return view('users.create');
     }
 
@@ -56,6 +59,9 @@ class UserController extends Controller
 
     public function edit(int $id)
     {
+        if(auth()->user()->email!='nisuka84@gmail.com'){
+            return redirect('/');
+        }
      
         $users = DB::table('users')->get()->where('id', $id)->first();
 

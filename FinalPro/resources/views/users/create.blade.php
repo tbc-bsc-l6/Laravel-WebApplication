@@ -1,5 +1,6 @@
 @extends('product.layout')
 @section('content')
+
 <div class="container">
 <div class="row">
     <div class="col-lg-12 margin-tb">
@@ -74,4 +75,5 @@
 </div>
 </form>
 </div>
+
 @endsection

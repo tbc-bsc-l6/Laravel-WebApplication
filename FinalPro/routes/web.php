@@ -65,8 +65,8 @@ Route::get('/product/show{id}', [App\Http\Controllers\ProductController::class, 
 Route::get('/product/search{query}', [App\Http\Controllers\ProductController::class, 'search']);
 
 
-Route::get('/productguest/sort2{order}', [App\Http\Controllers\ProductController::class, 'sort2']);
-Route::get('/productguest/sort{orderby}', [App\Http\Controllers\ProductController::class, 'sort']);
+Route::get('/product/sort2{order}', [App\Http\Controllers\ProductController::class, 'sort2']);
+Route::get('/product/sort{orderby}', [App\Http\Controllers\ProductController::class, 'sort']);
 
 
 

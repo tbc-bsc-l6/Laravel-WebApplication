@@ -243,7 +243,7 @@ class ProductController extends Controller
     {
         $search = $_GET['order'];
         $product=DB::table('product')->where('category_id', 1)
-        ->orderBy($search)
+        ->orderBy($search, 'desc')
         ->get();
 
         return view('product.sort', compact('product'));

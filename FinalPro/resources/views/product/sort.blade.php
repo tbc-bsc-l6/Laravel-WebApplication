@@ -1,6 +1,6 @@
 @extends('product.layout')
 @section('content')
-<h4>PRODUCT</h4>
+<h4>PRODUCT SORTED</h4>
 <table class="table table-bordered">
     <tr>
     <th>S.No</th>

@@ -1,10 +1,11 @@
 <x-guest-layout>
 <h1>Register</h1>
+<div class="formzs">
     <form method="POST" action="{{ route('register') }}">
         @csrf
 
         <!-- Name -->
-        <div>
+        <div class="mt-4">
             <x-input-label for="name" :value="__('Name')" />
             <x-text-input id="name" class="block mt-1 w-full" type="text" placeholder="Name" name="name" :value="old('name')" required autofocus />
             <x-input-error :messages="$errors->get('name')" class="mt-2" />
@@ -64,6 +65,8 @@
                 {{ __('Register') }}
             </x-primary-button>
 
+    
+
 
            
             
@@ -71,4 +74,5 @@
         </div>
     </form>
     <a class="btn btn-info" href="/">HOME</a>
+</div>
 </x-guest-layout>

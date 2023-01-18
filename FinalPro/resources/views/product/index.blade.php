@@ -19,6 +19,14 @@
 
 
 <h4>BOOK</h4>
+<form type="get" action="/product/sort{orderby}">
+    <select name="orderby" id="">
+        <option value="" selected="selected">Default sorting</option>
+        <option value="price" >Sort By Price</option>
+        <option value="PagesorLength">Sort By Page</option>
+    </select>
+    <button type="submit" name="button1" class="btn btn-info">Sort</button>
+</form>
 <table class="table table-bordered">
     <tr>
         <th>S.No.</th>
@@ -66,6 +74,14 @@
     @endif
 
     <h4>MOVIE</h4>
+    <form type="get" action="/product/sort2{order}">
+    <select name="order" id="">
+        <option value="" selected="selected">Default sorting</option>
+        <option value="price">Sort By Price</option>
+        <option value="PagesorLength">Sort By Length</option>
+    </select>
+    <button type="submit" class="btn btn-info">SORT</button>
+</form>
     <table class="table table-bordered">
     <tr>
         <th>S.No.</th>

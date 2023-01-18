@@ -16,7 +16,7 @@
 
 
 <h4>BOOK</h4>
-<form type="get" action="/productguest/sort{orderby}">
+<form type="get" action="/product/sort{orderby}">
     <select name="orderby" id="">
         <option value="" selected="selected">Default sorting</option>
         <option value="price" >Sort By Price</option>
@@ -24,6 +24,7 @@
     </select>
     <button type="submit" name="button1" class="btn btn-info">Sort</button>
 </form>
+<div style="overflow-x:auto;">
 <table class="table table-bordered">
     <tr>
         <th>S.No.</th>
@@ -68,7 +69,7 @@
 
 
     <h4>MOVIE</h4>
-<form type="get" action="/productguest/sort2{order}">
+<form type="get" action="/product/sort2{order}">
     <select name="order" id="">
         <option value="" selected="selected">Default sorting</option>
         <option value="price">Sort By Price</option>
@@ -109,11 +110,12 @@
     </tr>
     @endforeach
     </table> 
+ 
     
      @if(count($movie))
      {!! $movie->links('pagination::bootstrap-4') !!}
     @else
     <p class="text-center">No more products to show!</p>
     @endif
-   
+    </div>
 @endsection

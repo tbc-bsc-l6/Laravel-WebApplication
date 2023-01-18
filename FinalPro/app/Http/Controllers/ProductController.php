@@ -238,4 +238,28 @@ class ProductController extends Controller
         return view('product.search', compact('product'));
 
     }
+
+    public function sort2()
+    {
+        $search = $_GET['order'];
+        $product=DB::table('product')->where('category_id', 1)
+        ->orderBy($search)
+        ->get();
+
+        return view('product.sort', compact('product'));
+
+    }
+    public function sort()
+    {
+        $search_text = $_GET['orderby'];
+        $product=DB::table('product')->where('category_id', 2)
+        ->orderBy($search_text)
+        ->get();
+
+        return view('product.sort', compact('product'));
+
+    }
+   
 }
+
+

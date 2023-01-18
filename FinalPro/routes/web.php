@@ -65,6 +65,11 @@ Route::get('/product/show{id}', [App\Http\Controllers\ProductController::class, 
 Route::get('/product/search{query}', [App\Http\Controllers\ProductController::class, 'search']);
 
 
+Route::get('/productguest/sort2{order}', [App\Http\Controllers\ProductController::class, 'sort2']);
+Route::get('/productguest/sort{orderby}', [App\Http\Controllers\ProductController::class, 'sort']);
+
+
+
 Route::get('/users', [App\Http\Controllers\UserController::class, 'index'])->middleware('admin');
 Route::get('/users/editusers{id}', [App\Http\Controllers\UserController::class, 'edit'])->middleware('admin');
 Route::put('/users/update{id}', [App\Http\Controllers\UserController::class, 'update']);

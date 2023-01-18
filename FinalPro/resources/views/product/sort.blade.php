@@ -3,10 +3,11 @@
 <h4>PRODUCT</h4>
 <table class="table table-bordered">
     <tr>
+    <th>S.No</th>
         <th>Title</th>
         <th>Creator</th>
-        <th>category_is</th>
-        <th>Pages</th>
+        <th>category_id</th>
+        <th>Pages/Length</th>
         <th>Price</th>
         <th>Image</th>
        
@@ -14,6 +15,7 @@
 
     @foreach($product as $booc)
     <tr>
+    <td>{{ $booc->id }}</td>
         <td>{{ $booc->Title }}</td>
         <td>{{ $booc->Creator }}</td>
         <td>{{ $booc->category_id }}</td>
@@ -27,11 +29,12 @@
         @endif
         </td>
         <td>
-    
+            
         </td>
     </tr>
     @endforeach
     </table>
+  
     @if(auth()->user())
     <a class="btn btn-info" href="/product">GO BACK</a>
     @else

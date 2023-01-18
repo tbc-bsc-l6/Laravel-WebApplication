@@ -14,9 +14,6 @@ class UserController extends Controller
 {
     public function index()
     {
-        if(auth()->user()->email!='nisuka84@gmail.com'){
-            return redirect('/');
-        }
         $users = User::latest()->paginate(20);
     
         return view('users.users',compact('users'));
@@ -25,9 +22,6 @@ class UserController extends Controller
 
     public function create()
     {
-        if(auth()->user()->email!='nisuka84@gmail.com'){
-            return redirect('/');
-        }
         return view('users.create');
     }
 
@@ -43,12 +37,14 @@ class UserController extends Controller
             'id' => 'required',
             'name' => 'required',
             'email' => 'required',
+            'role' => 'required',
             'password' => 'required',
         ]);
         $users = new User;
         $users->id = $request->input('id');
         $users->name = $request->input('name');
         $users->email = $request->input('email');
+        $users->role = $request->get('role');
         $users->password = Hash::make($request->input('password'));
       
         $users->save();
@@ -59,9 +55,6 @@ class UserController extends Controller
 
     public function edit(int $id)
     {
-        if(auth()->user()->email!='nisuka84@gmail.com'){
-            return redirect('/');
-        }
      
         $users = DB::table('users')->get()->where('id', $id)->first();
 
@@ -82,12 +75,14 @@ class UserController extends Controller
             'id' => 'required',
             'name' => 'required',
             'email' => 'required',
+            'role' => 'required',
         ]);
         DB::table('users')->where('id', $id)
         ->update([
         'id' => $request->input('id'),
         'name' => $request->input('name'),
         'email' => $request->input('email'),
+        'role' => $request->input('role'),
     ]);
         return redirect('/users')
         //->route('/lipstick/index')

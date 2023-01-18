@@ -25,6 +25,7 @@
         <th>ID</th>
         <th>Name</th>
         <th>Email</th>
+        <th>Role</th>
         <th>Action</th>
         
     </tr>
@@ -35,6 +36,7 @@
         <td>{{ $user->id }}</td>
         <td>{{ $user->name }}</td>
         <td>{{ $user->email }}</td>
+        <td>{{ $user->role }}</td>
         <td>
         <form action="users/delete{{$user->id}}" method="POST">
             <a class="btn btn-info" href="/users/editusers{{$user->id}}">Edit</a>

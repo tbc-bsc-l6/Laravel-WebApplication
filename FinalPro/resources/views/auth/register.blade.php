@@ -20,11 +20,14 @@
         <!-- role -->
         <!-- <div>
             <x-input-label for="role" :value="__('Role')" />
-            <select name="role" id="role">
+            
+            <select name="role" id="role" class="block mt-1 w-full">
                 <option  disabled selected>--Choose--</option>
                 <option value="Admin">Admin</option>
                 <option value="User">User</option>
-                </select>  
+                </select> 
+                <x-input-error :messages="$errors->get('role')" class="mt-2" /> 
+              
         </div> -->
 
 

@@ -55,7 +55,17 @@
         </div>
     </div>
 
-  
+    <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="form-group">
+            <strong>Role:</strong>
+            <select name="role">
+            <option  disabled selected>----Choose---</option>
+            <option value="Admin">Admin</option>
+            <option value="SuperAdmin">SuperAdmin</option>
+            </select>
+        </div>
+    </div>
+
     <!-- <label>Category:  </label> -->
             <!-- <select>
             <option value="1" name="Category">Movie</option>

@@ -65,10 +65,10 @@ Route::get('/product/show{id}', [App\Http\Controllers\ProductController::class, 
 Route::get('/product/search{query}', [App\Http\Controllers\ProductController::class, 'search']);
 
 
-Route::get('/users', [App\Http\Controllers\UserController::class, 'index'])->middleware('auth');
-Route::get('/users/editusers{id}', [App\Http\Controllers\UserController::class, 'edit'])->middleware('auth');
+Route::get('/users', [App\Http\Controllers\UserController::class, 'index'])->middleware('admin');
+Route::get('/users/editusers{id}', [App\Http\Controllers\UserController::class, 'edit'])->middleware('admin');
 Route::put('/users/update{id}', [App\Http\Controllers\UserController::class, 'update']);
-Route::get('/users/create', [App\Http\Controllers\UserController::class, 'create'])->middleware('auth');
+Route::get('/users/create', [App\Http\Controllers\UserController::class, 'create'])->middleware('admin');
 Route::post('/users/store', [App\Http\Controllers\UserController::class, 'store']);
 Route::delete('/users/delete{id}', [App\Http\Controllers\UserController::class, 'destroy']);
 

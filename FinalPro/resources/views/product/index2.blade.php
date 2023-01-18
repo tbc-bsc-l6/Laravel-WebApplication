@@ -14,7 +14,13 @@
 @endif
 
 
+
 <h4>BOOK</h4>
+<select name="orderby" id="">
+    <option value="" selected="selected">Default sorting</option>
+    <option value="price">Sort By Price</option>
+    <option value="page">Sort By Page</option>
+</select>
 <table class="table table-bordered">
     <tr>
         <th>S.No.</th>
@@ -54,7 +60,16 @@
     <p class="text-center">No more products to show!</p>
     @endif
 
+
+ 
+
+
     <h4>MOVIE</h4>
+    <select name="orderby" id="">
+    <option value="" selected="selected">Default sorting</option>
+    <option value="price">Sort By Price</option>
+    <option value="page">Sort By Length</option>
+</select>
     <table class="table table-bordered">
     <tr>
         <th>S.No.</th>

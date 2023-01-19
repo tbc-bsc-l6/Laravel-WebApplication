@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\Authenticate;
+use Illuminate\Validation\ValidationException;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,21 +30,22 @@ try{
         'email_address' => request('email'),
         'status' => 'subscribed'
     ]);
-}catch(\Exception $e){
-    return redirect('/')
-    ->with('error', 'Your email address is not valid!.');
+}catch(Exception $e){
+    throw ValidationException::withMessages(['error', 'Your email address is not valid!.']);
 }
 
 return redirect('/')
-    ->with('success', 'You are now susbscrbed to our sales daily.');
+    ->with('success', 'You are now subscribed to our sales daily.');
 });
 
 
 
 
 Route::get('/', function () {
+    
     return view('welcome');
 });
+
 
 Route::get('/product', [App\Http\Controllers\ProductController::class, 'index'])->middleware('auth');
 

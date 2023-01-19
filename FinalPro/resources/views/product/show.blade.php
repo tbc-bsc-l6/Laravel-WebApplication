@@ -59,8 +59,6 @@
                 <img src="{{ asset('/images/uploads/'.$product->Image)}}" width="200px" height="200px" alt="NO IMAGE FOR THIS PRODUCT">
             </div>
         </div>
+        <a href="{{'/product'}}"><h5>GO BACK</h5></button> 
     </div>
-    <div class="row">
-    <a href="{{'/product'}}" class="btn btn-primary">GO BACK</button> 
-    </div>   
 @endsection

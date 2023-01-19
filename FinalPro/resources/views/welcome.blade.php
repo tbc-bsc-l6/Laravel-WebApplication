@@ -8,11 +8,11 @@
         <p>{{ $message }}</p>
     </div>
 @endif
-@if($message = Session::get('error'))
-    <div class="alert alert-danger">
-        <p>{{ $message }}</p>
-    </div>
-@endif
+<p class="error" style="color:red">
+    @error('email')
+    {{ $message }}
+    @enderror
+</p>
 <!-- Slideshow container -->
 <div id="slider">
     <ul id="slideWrap"> 

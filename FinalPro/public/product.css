@@ -71,7 +71,6 @@ table.table-bordered > tbody > tr > td{
 }
 
 .footer{
-   
     position: fixed;
     left: 0;
     bottom: 0;
@@ -147,9 +146,73 @@ table.table-bordered > tbody > tr > td{
     background: #2C3B5A;
     color: #fff;
 }
+.enteremail{
+    color:black;
+}
 
 
-/* 
-@media screen {
-    
-} */
+
+/* @media (max-width:700px){
+    .container
+     {width:100%;
+    }
+  } */
+
+
+
+
+  /* @media (max-width:700px){
+    .hello
+     {width:700px;
+    }
+  } */
+
+
+  @media (max-width:700px){
+    .navbar
+     {width:700px;
+    }
+    .page-footer{
+        width:100%;
+    }
+  }
+
+
+  @media (max-width:650px){
+  
+    .navbar
+     {width:650px;
+    }
+    .page-footer{
+        width:100%;
+    }
+  }
+  @media (max-width:661px){
+  
+    .navbar
+     {width:650px;
+    }
+    .page-footer{
+        width:100%;
+    }
+  }
+
+  @media (max-width:600px){
+   
+    .navbar
+     {width:600px;
+    }
+    .footer{
+        width:600px;
+    }
+  }
+
+  @media (max-width:500px){
+  
+    .navbar
+     {width:500px;
+    }
+    .footer{
+        width:500px;
+    }
+  }

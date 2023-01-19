@@ -1,6 +1,7 @@
 @extends('product.layout')
 @section('content')
 <h4>PRODUCT SORTED</h4>
+<div style="overflow-x:auto;">
 <table class="table table-bordered">
     <tr>
     <th>S.No</th>
@@ -40,14 +41,5 @@
     @else
     <a class="btn btn-info" href="/productguest">GO BACK</a>
     @endif
-
-
-
-
-
-
-
-
-
-
+</div>
 @endsection
